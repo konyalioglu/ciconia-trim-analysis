@@ -9,6 +9,7 @@ In general, trim analysis is defined as an optimization problem. The state vecto
 	$`\mathbit{x}_\mathbf{k}={(x,y,z,\phi,\ \theta,\ \psi)}^\mathbit{T}\`$ 	(4.80)
 
 $\mathbit{x}_\mathbit{d}$ is the dynamic state vector and \mathbit{x}_\mathbit{k} is a kinematic state vector. Also, the control input is defined in equation (4.81), for the forward flight. 
+
 	$\mathbit{u}_{\mathbf{ff}}={(\delta_T,\ \delta e,\ \delta a,\ \delta r)}^T$	(4.81)
 
 Where \delta_T is throttle setting, \delta e is elevator deflection, \delta a is aileron deflection and \delta r is rudder deflection. Because, in the transition state, the propulsion system for the hover state will also be used, the control input vector becomes as in equation (4.82).
