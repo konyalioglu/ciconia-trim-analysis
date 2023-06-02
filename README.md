@@ -18,7 +18,8 @@ u1,u2,u3, and u4 are defined as the force in the x-axis, the force that creates 
 	g(\dot{\mathbit{x}},\mathbit{x},\mathbit{u})=0	(4.83)
 
 Before establishing, the cost function for the optimization problem, necessary parameters should be constructed. Translational dynamic, rotational dynamic, translational kinematic, and rotational kinematic cost function parameters are given in equations (4.84), (4.85), (4.86), and (4.87), respectively.
-	f_{TD1}=\dot{u},\ \ f_{TD2}=\dot{v},\ \ f_{TD3}=\dot{w}\ 	(4.84)
+
+	$f_{TD1}=\dot{u},\ \ f_{TD2}=\dot{v},\ \ f_{TD3}=\dot{w}\$ 	
 
 	f_{RD1}=\dot{p},\ \ f_{RD2}=\dot{q},\ \ f_{RD3}=\dot{r}\ 	(4.85)
 
