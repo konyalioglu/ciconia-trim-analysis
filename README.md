@@ -36,7 +36,7 @@ $\mathbf{x}_{\mathbf{k}}$
 Also, the control
 input is defined in equation (4.81), for the forward flight.
 
-$$\mathbf{u}_{\mathbf{f}} = {(\delta_{T},\ \text{δe},\ \text{δa},\ \text{δr})}^{T}$$
+$$\mathbf{u}_{\mathbf{f}} = {(\delta_{T})}^{T}$$
 
 Where $\delta_{T}$ is throttle setting, $\text{δe}$ is elevator
 deflection, $\text{δa}$ is aileron deflection and $\text{δr}$ is rudder
