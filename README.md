@@ -43,19 +43,18 @@ $\delta_{T}$
 
 is throttle setting, 
 
-$\text{δe}$ 
+$\delta_{e}$ 
 
 is elevator
 deflection, 
 
-$\text{δa}$ 
+$\delta_{a}$ 
 
 is aileron deflection and 
 
-$\text{δr}$ 
+$\delta_{r}$ 
 
-is rudder
-deflection. Because, in the transition state, the propulsion system for
+is rudder deflection. Because, in the transition state, the propulsion system for
 the hover state will also be used, the control input vector becomes as
 in equation (4.82).
 
