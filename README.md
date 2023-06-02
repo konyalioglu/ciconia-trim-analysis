@@ -21,7 +21,7 @@ In general, trim analysis is defined as an optimization problem. The
 state vector for the trim states is defined as two different parts which
 are dynamic and kinematic as it is seen in equations (4.79) and (4.80).
 
-**x**<sub>**d**</sub>**=****(***u*, *v*, *w*, *p*, *q*, *r*)<sup>**T**</sup>
+$$\mathbit{x}_\mathbit{d}={(u,v,w,p,q,r)}^\mathbit{T}$$
 
 **x**<sub>**k**</sub>**=****(***x*, *y*, *z*, *ϕ*, *θ*, *ψ*)<sup>**T**</sup>
 
