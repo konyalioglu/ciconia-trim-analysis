@@ -3,12 +3,13 @@
 Trim Analysis
 In general aviation terms, trimming is performed to bring the act of altering trim tabs or artificial feel systems in order to remove the pressure on the control stick (or pedals) that the pilot is supposed to maintain during different flight conditions. When the aircraft is properly trimmed, the flight controls are in a position where the straight and level flight can be maintained without the need for force. The goal of trimming is to achieve equilibrium between the forces and moments acting on the aircraft. That occurs when the roll pitch and yaw moments, as well as the axial normal and side forces, are all equal to zero. The dynamic stability characteristics of the motion that occurs after such a disturbance are specified, and the stable aircraft will finally return to its equilibrium condition which occurs in steady-state flight. In a variety of engineering research, determining aircraft steady-state flight conditions or also trimmed states is of great importance. Usually, trim points are used to derive linear models. Linearization is performed around those trim states.
 In general, trim analysis is defined as an optimization problem. The state vector for the trim states is defined as two different parts which are dynamic and kinematic as it is seen in equations (4.79) and (4.80).
-	\mathbit{x}_\mathbit{d}={(u,v,w,p,q,r)}^\mathbit{T}\ 	(4.79)
 
-	\mathbit{x}_\mathbf{k}={(x,y,z,\phi,\ \theta,\ \psi)}^\mathbit{T}\ 	(4.80)
+	$\mathbit{x}_\mathbit{d}={(u,v,w,p,q,r)}^\mathbit{T}\$ 	(4.79)
 
-\mathbit{x}_\mathbit{d} is the dynamic state vector and \mathbit{x}_\mathbit{k} is a kinematic state vector. Also, the control input is defined in equation (4.81), for the forward flight. 
-	\mathbit{u}_{\mathbf{ff}}={(\delta_T,\ \delta e,\ \delta a,\ \delta r)}^T	(4.81)
+	$\mathbit{x}_\mathbf{k}={(x,y,z,\phi,\ \theta,\ \psi)}^\mathbit{T}\$ 	(4.80)
+
+$\mathbit{x}_\mathbit{d}$ is the dynamic state vector and \mathbit{x}_\mathbit{k} is a kinematic state vector. Also, the control input is defined in equation (4.81), for the forward flight. 
+	$\mathbit{u}_{\mathbf{ff}}={(\delta_T,\ \delta e,\ \delta a,\ \delta r)}^T$	(4.81)
 
 Where \delta_T is throttle setting, \delta e is elevator deflection, \delta a is aileron deflection and \delta r is rudder deflection. Because, in the transition state, the propulsion system for the hover state will also be used, the control input vector becomes as in equation (4.82).
 	\mathbit{u}_{\mathbf{tr}}={(\delta_T,\ \delta e,\ \delta a,\ \delta r,\ u1,u2,u3,u4)}^T	(4.82)
