@@ -35,7 +35,7 @@ $\mathbf{x}_{\mathbf{k}}$
 is a kinematic state vector. Also, the control
 input is defined in equation (4.81), for the forward flight.
 
-$$\mathbf{u}_{\mathbf{\text{ff}}} = {(\delta_{T},\ \delta_{e},\ \delta_{a},\ \delta_{r})}^{T}$$
+$$\mathbf{u}_{\mathbf{ff}}\mathbf{=}{(\delta_{T},\ \delta_{e},\ \delta_{a},\ \delta_{r})}^{T}$$
 
 Where 
 
