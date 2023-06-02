@@ -26,8 +26,8 @@ $$\mathbf{x}_{\mathbf{d}}\mathbf{=}{\mathbf{(}u,v,w,p,q,r)}^{\mathbf{T}}$$
 
 $$\mathbf{x}_{\mathbf{k}}\mathbf{=}{\mathbf{(}x,y,z,\phi,\ \theta,\ \psi)}^{\mathbf{T}}$$
 
-$\mathbf{x}_{\mathbf{d}}$ is the dynamic state vector and
-$\mathbf{x}_{\mathbf{k}}$ is a kinematic state vector. Also, the control
+$$\mathbf{x}_{\mathbf{d}}$$ is the dynamic state vector and
+$$\mathbf{x}_{\mathbf{k}}$$ is a kinematic state vector. Also, the control
 input is defined in equation (4.81), for the forward flight.
 
 $$\mathbf{u}_{\mathbf{\text{ff}}} = {(\delta_{T},\ \text{δe},\ \text{δa},\ \text{δr})}^{T}$$
