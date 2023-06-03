@@ -133,7 +133,7 @@ $$J = f_{TD1}^{2} + f_{TD2}^{2} + f_{TD3}^{2} + f_{RD1}^{2} + f_{RD2}^{2} + f_{R
 Therefore, for the optimization problem, there are seven unknown
 parameters to be solved by using another seven known parameters.
 
-![trim_analysis_algorithm]([https://github.com/konyalioglu/turan_konyalioglu_17012023/blob/main/rosgraph.png](https://github.com/konyalioglu/ciconia-trim-analysis/blob/main/trim_analysis_algorithm.png)
+![trim_analysis_algorithm](https://github.com/konyalioglu/ciconia-trim-analysis/blob/main/trim_analysis_algorithm.png)
 
 The trim analysis algorithm is illustrated in Figure 4.10. The
 optimization algorithm is selected as Thrust Region Method (Conn, Gould,
