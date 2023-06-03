@@ -425,4 +425,7 @@ $$B_{lat,ff} = \begin{pmatrix}
 
 
 ## References
-
+[1] Konyalioglu, T. (2023). DESIGN, DEVELOPMENT AND CONTROL OF UNMANNED AERIAL VEHICLES FOR A PARCEL DELIVERY SYSTEM. Master's Thesis. Istanbul Technical University.
+[2] De Marco, A., Duke, E., & Berndt, J. (2007, August). A general solution to the aircraft trim problem. In AIAA Modeling and Simulation Technologies Conference and Exhibit (p. 6703).
+[3] Stevens, B. L., Lewis, F. L., & Johnson, E. N. (2015). Aircraft control and simulation : dynamics, controls design, and autonomous systems.
+[4] Konyalioglu, T., Alnipak, S., & Altug, E. (2021). Model Predictive Control of a Hybrid UAV for Parcel Delivery Applications. AIRPHARO 2021 - 1st AIRPHARO Workshop on Aerial Robotic Systems Physically Interacting with the Environment. https://doi.org/10.1109/AIRPHARO52252.2021.9571035
