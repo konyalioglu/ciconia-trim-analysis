@@ -1,12 +1,37 @@
 # CICONIA AIRCRAFT TRIM ANALYSIS
 
-
+Ciconia trim analysis packages
 
 ## Usage
+The code can be used by running "main.py" python file. One can change the cases that code will analyze as follows,
 
+```
+    def cases(self):        
+        
+        self.data['Vt30']['3']['Vt'] = 30
+        self.data['Vt30']['3']['mach'] = self.data['Vt30']['3']['Vt'] / self.model.c
+        self.data['Vt30']['3']['phi'] = 45 * np.pi / 180
+        self.data['Vt30']['3']['lambdaf'] = 0
+        self.data['Vt30']['3']['x0'] = [0.02, 0.02, 0, 0.0, 0, 0, 1]
+        self.data['Vt30']['3']['type'] = 'steady-state-turn-flight'
+        self.data['Vt30']['3']['bnds'] = ((-0.13, 0.13), (None, None), (None, None), \
+                                          (-0.5, 0.5), (-0.5, 0.5), (-0.5, 0.5),\
+                                              (0.0, 1.0))
+                                                           
+```
+
+Vt, phi, lamdaf refers to wind speed, bank angle and flight path angle, respectively. User should set those value regarding which case or trim problem they want to solve.
+
+x0 refers to initial trim vector which is described in section below. 
+
+bnds is the inequality constraints that the optimization problem will handle for trim vector.
+
+User can also specify trim problem as transition (for hyrbid VTOL aircrafts), simplified-flight, generalized-flight, wing-level-flight and steady-state-turn-flight.
+
+Then, the code creates database contains trim vector, state-space matrices, and forces-moments residuals.
 
 ## Dependencies
-
+Numpy 1.19.2 and Scipy 1.5.2 were used for the package. 
 
 ## Aircraft Trim Analysis
 
