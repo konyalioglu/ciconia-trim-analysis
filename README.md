@@ -133,7 +133,7 @@ $$J = f_{TD1}^{2} + f_{TD2}^{2} + f_{TD3}^{2} + f_{RD1}^{2} + f_{RD2}^{2} + f_{R
 Therefore, for the optimization problem, there are seven unknown
 parameters to be solved by using another seven known parameters.
 
-<img src="media/image1.png" style="width:5.66783in;height:1.06796in" alt="Graphical user interface, diagram Description automatically generated" />
+![trim_analysis_algorithm]([https://github.com/konyalioglu/turan_konyalioglu_17012023/blob/main/rosgraph.png](https://github.com/konyalioglu/ciconia-trim-analysis/blob/main/trim_analysis_algorithm.png)
 
 The trim analysis algorithm is illustrated in Figure 4.10. The
 optimization algorithm is selected as Thrust Region Method (Conn, Gould,
@@ -310,7 +310,8 @@ column is controlled by the convergence tolerance value 1e-6. It moves
 on to the calculations for the following column if the difference is
 less than the tolerance value.
 
-<img src="media/image1.png" style="width:4.16667in;height:5.10442in" alt="Diagram Description automatically generated" />
+
+![numerical_linearization_algorithm](https://github.com/konyalioglu/ciconia-trim-analysis/blob/main/numerical_linearization_algorithm.png)
 
 **Figure** **4.12:** Numerical linearization algorithm.
 
