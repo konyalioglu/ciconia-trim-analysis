@@ -135,6 +135,8 @@ parameters to be solved by using another seven known parameters.
 
 ![trim_analysis_algorithm](https://github.com/konyalioglu/ciconia-trim-analysis/blob/main/trim_analysis_algorithm.png)
 
+**Figure** **1:** Trim analysis algorithm.
+
 The trim analysis algorithm is illustrated in Figure 4.10. The
 optimization algorithm is selected as Thrust Region Method (Conn, Gould,
 & Toint, 2000). Firstly, the trim state vector is initialized with
@@ -313,7 +315,7 @@ less than the tolerance value.
 
 ![numerical_linearization_algorithm](https://github.com/konyalioglu/ciconia-trim-analysis/blob/main/numerical_linearization_algorithm.png)
 
-**Figure** **4.12:** Numerical linearization algorithm.
+**Figure** **2:** Numerical linearization algorithm.
 
 In reference of (Stevens, Lewis, & Johnson, 2015) algorithm of the
 numerical method which is also seen in the Figure above is described in
@@ -451,11 +453,15 @@ $$B_{lat,ff} = \begin{pmatrix}
 
 
 ## References
-[1] Konyalioglu, T. (2023). DESIGN, DEVELOPMENT AND CONTROL OF UNMANNED AERIAL VEHICLES FOR A PARCEL DELIVERY SYSTEM. Master's Thesis. Istanbul Technical University.
+- Konyalioglu, T. (2023). DESIGN, DEVELOPMENT AND CONTROL OF UNMANNED AERIAL VEHICLES FOR A PARCEL DELIVERY SYSTEM. Master's Thesis. Istanbul Technical University.
 
-[2] De Marco, A., Duke, E., & Berndt, J. (2007, August). A general solution to the aircraft trim problem. In AIAA Modeling and Simulation Technologies Conference and Exhibit (p. 6703).
+- De Marco, A., Duke, E., & Berndt, J. (2007, August). A general solution to the aircraft trim problem. In AIAA Modeling and Simulation Technologies Conference and Exhibit (p. 6703).
 
-[3] Stevens, B. L., Lewis, F. L., & Johnson, E. N. (2015). Aircraft control and simulation : dynamics, controls design, and autonomous systems.
+- Stevens, B. L., Lewis, F. L., & Johnson, E. N. (2015). Aircraft control and simulation : dynamics, controls design, and autonomous systems.
 
-[4] Konyalioglu, T., Alnipak, S., & Altug, E. (2021). Model Predictive Control of a Hybrid UAV for Parcel Delivery Applications. AIRPHARO 2021 - 1st AIRPHARO Workshop on Aerial Robotic Systems Physically Interacting with the Environment. https://doi.org/10.1109/AIRPHARO52252.2021.9571035.
+- Konyalioglu, T., Alnipak, S., & Altug, E. (2021). Model Predictive Control of a Hybrid UAV for Parcel Delivery Applications. AIRPHARO 2021 - 1st AIRPHARO Workshop on Aerial Robotic Systems Physically Interacting with the Environment. https://doi.org/10.1109/AIRPHARO52252.2021.9571035.
+
+- Conn, A. R., Gould, N. I., & Toint, P. L. (2000). Trust region methods. Society for Industrial and Applied Mathematics.
+
+- https://docs.scipy.org/doc/scipy/reference/optimize.minimize-trustconstr.html
 
