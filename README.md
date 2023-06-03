@@ -14,7 +14,7 @@ In general aviation terms, trimming is performed to bring the act of altering tr
 
 In a variety of engineering research, determining aircraft steady-state flight conditions or trimmed states is of great importance. Usually, trim points are used to derive linear models. Linearization is performed around those trim states.
 
-In general, trim analysis is defined as an optimization problem. The state vector for the trim states is defined as two different parts, which are dynamic and kinematic as shown in equations (4.79) and (4.80).
+In general, trim analysis is defined as an optimization problem. The state vector for the trim states is defined as two different parts, which are dynamic and kinematic as shown in 
 
 $$
 \mathbf{x_d} = \left( u, v, w, p, q, r \right)^T
@@ -24,25 +24,25 @@ $$
 \mathbf{x_k} = \left( x, y, z, \phi, \theta, \psi \right)^T
 $$
 
-where $\mathbf{x_d}$ is the dynamic state vector and $\mathbf{x_k}$ is the kinematic state vector. The control input for forward flight is defined in equation (4.81).
+where $\mathbf{x_d}$ is the dynamic state vector and $\mathbf{x_k}$ is the kinematic state vector. The control input for forward flight is defined in equation below,
 
 $$
 \mathbf{u_f} = \left( \delta_T, \delta_e, \delta_a, \delta_r \right)^T
 $$
 
-where $\delta_T$ is throttle setting, $\delta_e$ is elevator deflection, $\delta_a$ is aileron deflection, and $\delta_r$ is rudder deflection. In the transition state, when the propulsion system for hover state is also used, the control input vector becomes as shown in equation (4.82).
+where $\delta_T$ is throttle setting, $\delta_e$ is elevator deflection, $\delta_a$ is aileron deflection, and $\delta_r$ is rudder deflection. In the transition state, when the propulsion system for hover state is also used, the control input vector becomes as shown in equation below,
 
 $$
 \mathbf{u_t} = \left( \delta_T, \delta_e, \delta_a, \delta_r, u_1, u_2, u_3, u_4 \right)^T
 $$
 
-where $u_1, u_2, u_3,$ and $u_4$ represent the force in the x-axis, the force that creates the pitching moment, the force that creates the rolling moment, and the force that creates the yawing moment, respectively. Additionally, the implicit form of the non-linear aircraft state equation for the trim state is given in equation (4.83).
+where $u_1, u_2, u_3,$ and $u_4$ represent the force in the x-axis, the force that creates the pitching moment, the force that creates the rolling moment, and the force that creates the yawing moment, respectively. Additionally, the implicit form of the non-linear aircraft state equation for the trim state is given in equation  below,
 
 $$
 g(\dot{\mathbf{x}}, \mathbf{x}, \mathbf{u}) = 0
 $$
 
-Before establishing the cost function for the optimization problem, necessary parameters should be constructed. Translational dynamic, rotational dynamic, translational kinematic, and rotational kinematic cost function parameters are given in equations (4.84), (4.85), (4.86), and (4.87), respectively.
+Before establishing the cost function for the optimization problem, necessary parameters should be constructed. Translational dynamic, rotational dynamic, translational kinematic, and rotational kinematic cost function parameters are given as,
 
 $$f_{TD1} = \dot{u},\ \ f_{TD2} = \dot{v},\ \ f_{TD3} = \dot{w}$$
 
@@ -56,11 +56,11 @@ However, considering the construction of the trim problem in order to add flight
 
 $$f_{TK3} = \sin\gamma - \left[\cos\alpha\cos\beta\sin\theta - \sin\beta\cos\theta\sin\phi - \sin\alpha\cos\beta\cos\theta\cos\phi\right]$$
 
-These cost function parameters are obtained by using the equation of motion of the hybrid VTOL aircraft as discussed in section 4.2.1. For general straight flight trim analysis, the trim states are chosen as shown in equation (4.89):
+These cost function parameters are obtained by using the equation of motion of the hybrid VTOL aircraft as discussed in section 4.2.1. For general straight flight trim analysis, the trim states are chosen as shown in equation:
 
 $$\mathbf{\zeta} = \left(V_{T},\ \beta,\ \alpha,\ (u,\ v,\ w),\ p,\ q,\ r,\ \phi,\ \theta,\ \psi,\ h,\gamma,\ \delta_{T},\ \delta_e,\ \delta_a,\ \delta_r\right)^T$$
 
-Where specified and unknown trim state vectors are given in equations (4.90) and (4.91):
+Where specified and unknown trim state vectors are given in equations:
 
 $$
 \mathbf{\zeta}_{\text{specified}} = \begin{pmatrix} V_T \\ h \\ \gamma \\ \phi \end{pmatrix}^T
@@ -68,7 +68,7 @@ $$
 
 $$\mathbf{\zeta}_{\text{unknown}} = \left(\beta,\ \alpha,\ p,\ q,\ r,\ \theta,\ \psi,\delta_e,\ \delta_a,\ \delta_r,\delta_T\right)^T$$
 
-Here, $\zeta_{\text{specified}}$ is defined as the trim condition of the aircraft. $h$ determines the atmospheric conditions, $\gamma$ determines whether the aircraft is descending or ascending. If a turn state is analyzed, the $\phi$ term can be given as an input other than zero. The generalized trim cost function is defined in equation (4.92):
+Here, $\zeta_{\text{specified}}$ is defined as the trim condition of the aircraft. $h$ determines the atmospheric conditions, $\gamma$ determines whether the aircraft is descending or ascending. If a turn state is analyzed, the $\phi$ term can be given as an input other than zero. The generalized trim cost function is defined in equation:
 
 $$J = f_{TD1}^2 + f_{TD2}^2 + f_{TD3}^2 + f_{RD1}^2 + f_{RD2}^2 + f_{RD3}^2 + f_{RK1}^2 + f_{RK2}^2 + f_{RK3}^2 + f_{TK2}^2 + f_{TK3}^2$$
 
@@ -76,7 +76,7 @@ Then, the optimization problem can be solved with 11 unknown and 11 known variab
 
 $$\mathbf{\zeta} = \left(V_{T},\ \beta,\ \alpha,\ (u,\ v,\ w),\ p,\ q,\ r,\ \phi,\ \theta,\ \psi,\ h,\gamma,\ \delta_{T},u1,u2,u3,u4\right)^T$$
 
-Where specified and unknown trim state vectors are given in equations (4.94) and (4.95):
+Where specified and unknown trim state vectors are given in equations:
 
 $$
 \mathbf{\zeta}_{\text{specified}} = \begin{pmatrix} V_T \\ h \\ \gamma \\ \phi \\ \theta = 0 \\ \delta e = 0 \\ \delta a = 0 \\ \delta r = 0 \end{pmatrix}^T
@@ -86,9 +86,9 @@ $$
 \mathbf{\zeta}_{\text{unknown}} = \begin{pmatrix} \beta \\ \alpha \\ p \\ q \\ r \\ \theta \\ \psi \\ \delta e \\ \delta a \\ \delta r \\ \delta_T \\ u_1 \\ u_2 \\ u_3 \\ u_4 \end{pmatrix}^T
 $$
 
-The cost function for transition trim analysis is defined the same as the general straight flight trim analysis, as established in equation (4.92).
+The cost function for transition trim analysis is defined the same as the general straight flight trim analysis, as established in equation.
 
-On the other hand, another trim analysis type, which is steady-state turn flight, is performed in this thesis. In addition to the general straight flight trim problem, the side-slip angle, $\beta$, is specified, body rates are removed, and yaw rate is left optional to user definition, regarding the trim state vector as seen in equations (4.96) and (4.97)
+On the other hand, another trim analysis type, which is steady-state turn flight, is performed in this thesis. In addition to the general straight flight trim problem, the side-slip angle, $\beta$, is specified, body rates are removed, and yaw rate is left optional to user definition, regarding the trim state vector as it is seen,
 
 $$
 \mathbf{\zeta}_{\text{specified}} = \begin{pmatrix} V_T \\ h \\ \gamma \\ \beta \\ \phi \ \text{(or} \ \dot{\psi}) \end{pmatrix}^T
@@ -101,8 +101,7 @@ $$
 
 Therefore, in the trim state vector, there are seven unknown variables.
 Because turning concerns the variables in the planar position, related
-constraints are removed from the cost function as it is seen in equation
-(4.98).
+constraints are removed from the cost function as it is seen in equation below,
 
 $$J = f_{TD1}^{2} + f_{TD2}^{2} + f_{TD3}^{2} + f_{RD1}^{2} + f_{RD2}^{2} + f_{RD3}^{2} + f_{TK3}^{2}$$
 
@@ -125,34 +124,30 @@ state vector is again used to calculate external forces and moments.
 As it is mentioned before, the aircraft trim analysis is performed for
 generalized trim analysis problems at different kinds of conditions. One
 of them is that wind velocity, $V_{T},$ is 20.5 m/s, altitude, $h$, is 0
-meters, flight path angle, $\gamma$, is 0 degrees as it is seen in
-(4.99).
+meters, flight path angle, $\gamma$, is 0 degrees as it is seen in below,
 
 $$\mathbf{\zeta}_{\text{specified}} = {(20.5,\ 0,\ 0,\ 0)}^{T}$$
 
-The initialization of the trim vector can be seen as it is in equation
-(4.100).
+The initialization of the trim vector can be seen as it is in equation:
 
 $$\mathbf{\zeta}_{\text{unknown}} = {(\ 0.0,\ 0.02,\ 0.0,\ 0.0,\ 0.0,\ 0.02,\ 0.0,0.0,\ 0.0,\ 0.0,1.0)}^{T}$$
 
-After the algorithm converges, the equation (4.101) is obtained as the
+After the algorithm converges, the equation below is obtained as the
 solution to the problem.
 
 $$\mathbf{\zeta}_{\text{unknown}} = {(\ 0.0,\ 0.106,\ 0.0,\ 0.0,\ 0.0,\ 0.106,\ 0.0, - 0.20,\ 0.0,\ 0.0,0.579)}^{T}$$
 
-For the case of steady-turn trim problem definition, the trim state
-vector is defined in (4.102). wind velocity, $V_{T},$ is 20.5 m/s,
+For the case of steady-turn trim problem definition, wind velocity, $V_{T},$ is 20.5 m/s,
 altitude, $h$, is 0 meters, flight path angle, $\gamma$, is 0 and bank
 angle, $\phi$, is $45{^\circ}$.
 
 $$\mathbf{\zeta}_{\text{specified}} = {(20.5,\ 0,0,0,\ \phi = 45{^\circ})}^{T}$$
 
-And the trim state vector is initialized as in equation (4.103).
+And the trim state vector is initialized as in equation below,
 
 $$\mathbf{\zeta}_{\text{unknown}} = {(0.2,\ 0.2,\ 0.0,\ 0.0,\ 0.0,\ 0.0,\ 1)}^{T}$$
 
-The solution of the steady-turn trim analysis is given in equation
-(4.104).
+The solution of the steady-turn trim analysis is given in equation,
 
 $$\mathbf{\zeta}_{\text{unknown}} = {(0.020,\ 0.024,\ 0,0.0280,\ 0.002,\  - 0.003,\ 0.505)}^{T}$$
 
@@ -176,7 +171,7 @@ flight condition or trim conditions. The sum of a steady state value and
 a perturbed value is used to redefine each motion variable, Euler angle,
 force, and moment in the equation of motion. It can be started by
 defining the state equations. The explicit form of the nonlinear system
-is as in equation (4.121).
+is defined as,
 
 $$\dot{\overline{x}}\  = f(\overline{x},\overline{u},\overline{d})$$
 
@@ -186,12 +181,12 @@ $\overline{u}\mathbf{\ }\epsilon\ \mathbb{R}^{m}$ and
 $\overline{d}\mathbf{\ }\epsilon\ \mathbb{R}^{k}$. n is the number of
 states, m is the number of inputs and k is the number of disturbance
 variables. The explicit form of a nonlinear system can be written as the
-implicit form in the equation (4.122).
+implicit form,
 
 $$0 = f(\overline{x},\overline{u},\overline{d}) - \dot{\overline{x}}\  = F(\dot{\overline{x}},\ \overline{x},\overline{u},\overline{d})$$
 
 If all variables are stacked into one called $\eta$, the equation
-(4.123) can be written.
+below can be written.
 
 $$0 = F(\overline{\eta})$$
 
@@ -201,19 +196,19 @@ $$\overline{\eta}\  = \ \begin{pmatrix}
 
 where $\overline{\eta}\epsilon\ \mathbb{R}^{2n + m + k}$. If the Taylor
 series expansion is written for $F(\overline{\eta})$, we can obtain
-equation (4.124).
+equation
 
 $$
 F(\bar{\eta}) = F({\bar{\eta}}_1) + \left. \frac{\partial F(\bar{\eta})}{\partial\bar{\eta}} \right|_{{\bar{\eta}}_1} (\bar{\eta}-{\bar{\eta}}_1) + \left. \frac{\partial^2F(\bar{\eta})}{\partial{\bar{\eta}}^2} \right|_{{\bar{\eta}}_1} (\bar{\eta}-{\bar{\eta}}_1)^2 + \cdots
 $$
 
-And if the $\overline{\eta}$ term is expanded, the equation (4.125) can be written for the first gradient.
+And if the $\overline{\eta}$ term is expanded, the equation below can be written for the first gradient.
 
 $$
 F(\dot{\overline{x}}, \bar{x}, \bar{u}, \bar{d}) = F(\dot{\overline{x}}_1, \bar{x}_1, \bar{u}_1, \bar{d}_1) + \frac{\partial F(\dot{\overline{x}}, \bar{x}, \bar{u}, \bar{d})}{\partial \dot{\overline{x}}} (\dot{\overline{x}} - \dot{\overline{x}}_1) + \frac{\partial F(\dot{\overline{x}}, \bar{x}, \bar{u}, \bar{d})}{\partial \bar{x}} (\bar{x} - \bar{x}_1) + \frac{\partial F(\dot{\overline{x}}, \bar{x}, \bar{u}, \bar{d})}{\partial \bar{u}} (\bar{u} - \bar{u}_1) + \frac{\partial F(\dot{\overline{x}}, \bar{x}, \bar{u}, \bar{d})}{\partial \bar{d}} (\bar{d} - \bar{d}_1) + \cdots
 $$
 
-In equation (4.125), the subscript “1” refers to the trim state, related
+In equation above, the subscript “1” refers to the trim state, related
 to the steady-state flight. For the sake of simplicity, the difference
 term can be written as,
 
@@ -259,8 +254,8 @@ $$
 \end{pmatrix} = D'
 $$
 
-Jacobians are given in equations (4.130), (4.131), (4.132), and (4.133).
-Regarding the equation (4.125), the terms
+Jacobians are given in equations above.
+The terms
 $F(\dot{\overline{x}},\ \overline{x},\overline{u},\overline{d})$ and
 $F(\dot{\overline{x}}_1,\bar{x}_1,\bar{u}_1,\bar{d}_1)$
 are expected to be zero because the flight conditions are steady-state
@@ -270,13 +265,12 @@ $$
 0 = E\Delta x + A'\Delta x + B'\Delta u + D'\Delta d
 $$
 
-Using the equation (4.134), we can obtain state states form,
+Then, we can obtain state states form,
 
 $$\mathrm{\Delta}\dot{\overline{x}} =-E^{-1}A'\mathrm{\Delta}\overline{x}-E^{-1}B'\mathrm{\Delta}\overline{u} -E^{-1}D'\mathrm{\Delta}\overline{d}$$
 
 Consequently, the state matrix, $A$, input matrix, $B$, and the
-disturbance matrix, $D$, can be obtained using equations (4.136),
-(4.137), and (4.138).
+disturbance matrix, $D$, can be obtained as,
 
 $$A = - E^{- 1}A'$$
 
@@ -296,7 +290,7 @@ less than the tolerance value.
 **Figure** **4.12:** Numerical linearization algorithm.
 
 In reference of (Stevens, Lewis, & Johnson, 2015) algorithm of the
-numerical method which is also seen in the Figure 4.12 is described in
+numerical method which is also seen in the Figure above is described in
 detail. The user determines the precision value, state vector, control
 input vector and step size of the numerical derivation. Then, the
 algorithm starts with finding trim data and initial perturbation of the
@@ -312,7 +306,7 @@ operation is done for matrix *E*, $A'$, $C'$ and $D'$.
 The linear state equations of the aircraft for are found by performing
 numerical linearization, while the aircraft mode and state matrices were
 found throughout the transition. Accordingly, the longitudinal and
-lateral state matrices are given in equations (4.139) and (4.140).
+lateral state matrices are given in equations:
 
 $$A_{\text{lon}} = \begin{pmatrix}
 X_{u} & X_{w} & X_{q} & - g\ cos\theta_{1} & 0 \\
@@ -334,7 +328,7 @@ The uppercase symbols in the matrices indicate the force or moment
 derivatives, while the subscripts indicate the relevant state element.
 $g$ is the gravitational acceleration, $\theta_{1}$ is the trim pitch
 and $V_{1}$ is the wind speed in the trim state. In addition, the states
-are as shown in equation (4.141).
+are as shown in equation below,
 
 $$\mathbf{x}_{\text{lon}} = \begin{pmatrix}
 u & w & \begin{matrix}
@@ -371,7 +365,7 @@ Regarding the transition dynamics of the aircraft, there will be
 additional input variables obtained from quadrotor dynamics. Therefore,
 the matrices are 5x4 in size and there are eight control inputs in
 total. The linearized longitudinal and lateral control matrices are
-shown in (4.144) and (4.145).
+shown as, 
 
 $$B_{lon,tr} = \begin{pmatrix}
 X_{\text{δe}} & X_{T} & 0 & 0 \\
@@ -392,7 +386,7 @@ N_{\text{δa}} & N_{\text{δr}} & 0 & \frac{1}{I_{\text{zz}}} \\
 For the trim analysis whose conditions are given in equation (4.99), the
 non-linear state equations are linearized with regard to given numerical
 linearization techniques. The state matrix results for longitudinal and
-lateral dynamics are given in equations (4.146) and (4.147).
+lateral dynamics are given in equations:
 
 $$A_{\text{lon}} = \begin{pmatrix}
  -0.134 & 0.517 & -2.030 & -9.751 & 0 \\
