@@ -7,60 +7,42 @@
 
 ## Dependencies
 
-## Trim Analysis
 
-In general aviation terms, trimming is performed to bring the act of
-altering trim tabs or artificial feel systems in order to remove the
-pressure on the control stick (or pedals) that the pilot is supposed to
-maintain during different flight conditions. When the aircraft is
-properly trimmed, the flight controls are in a position where the
-straight and level flight can be maintained without the need for force.
-The goal of trimming is to achieve equilibrium between the forces and
-moments acting on the aircraft. That occurs when the roll pitch and yaw
-moments, as well as the axial normal and side forces, are all equal to
-zero. The dynamic stability characteristics of the motion that occurs
-after such a disturbance are specified, and the stable aircraft will
-finally return to its equilibrium condition which occurs in steady-state
-flight. In a variety of engineering research, determining aircraft
-steady-state flight conditions or also trimmed states is of great
-importance. Usually, trim points are used to derive linear models.
-Linearization is performed around those trim states.
+## Aircraft Trim Analysis
 
-In general, trim analysis is defined as an optimization problem. The
-state vector for the trim states is defined as two different parts which
-are dynamic and kinematic as it is seen in equations (4.79) and (4.80).
+In general aviation terms, trimming is performed to bring the act of altering trim tabs or artificial feel systems in order to remove the pressure on the control stick (or pedals) that the pilot is supposed to maintain during different flight conditions. When the aircraft is properly trimmed, the flight controls are in a position where straight and level flight can be maintained without the need for force. The goal of trimming is to achieve equilibrium between the forces and moments acting on the aircraft. This occurs when the roll, pitch, and yaw moments, as well as the axial normal and side forces, are all equal to zero. The dynamic stability characteristics of the motion that occurs after such a disturbance are specified, and the stable aircraft will finally return to its equilibrium condition which occurs in steady-state flight.
 
-$$\mathbf{x}_{\mathbf{d}}\mathbf{=}\left( u,v,w,p,q,r \right)^{\mathbf{T}}$$
+In a variety of engineering research, determining aircraft steady-state flight conditions or trimmed states is of great importance. Usually, trim points are used to derive linear models. Linearization is performed around those trim states.
 
-$$\mathbf{x}_{\mathbf{k}}\mathbf{=}\left( x,y,z,\phi,\theta,\psi \right)^{\mathbf{T}}$$
+In general, trim analysis is defined as an optimization problem. The state vector for the trim states is defined as two different parts, which are dynamic and kinematic as shown in equations (4.79) and (4.80).
 
-$\mathbf{x}_{\mathbf{d}}$ is the dynamic state vector and
-$\mathbf{x}_{\mathbf{k}}$ is a kinematic state vector. Also, the control
-input is defined in equation (4.81), for the forward flight.
+$$
+\mathbf{x_d} = \left( u, v, w, p, q, r \right)^T
+$$
 
-$$\mathbf{u}_{\mathbf{f}} = \left( \delta_{T},\text{δe},\text{δa},\text{δr} \right)^{T}$$
+$$
+\mathbf{x_k} = \left( x, y, z, \phi, \theta, \psi \right)^T
+$$
 
-Where $\delta_{T}$ is throttle setting, $\text{δe}$ is elevator
-deflection, $\text{δa}$ is aileron deflection and $\text{δr}$ is rudder
-deflection. Because, in the transition state, the propulsion system for
-the hover state will also be used, the control input vector becomes as
-in equation (4.82).
+where $\mathbf{x_d}$ is the dynamic state vector and $\mathbf{x_k}$ is the kinematic state vector. The control input for forward flight is defined in equation (4.81).
 
-$$\mathbf{u}_{\mathbf{t}} = \left( \delta_{T},\text{δe},\text{δa},\text{δr},u1,u2,u3,u4 \right)^{T}$$
+$$
+\mathbf{u_f} = \left( \delta_T, \delta_e, \delta_a, \delta_r \right)^T
+$$
 
-$u1,u2,u3,$ and $u4$ are defined as *the* force in the x-axis, the force
-that creates the pitching moment, and the force that creates the rolling
-moment and yawing moment, respectively. Also, one can define the
-implicit form of the non-linear aircraft state equation for the trim
-state in equation (4.83).
+where $\delta_T$ is throttle setting, $\delta_e$ is elevator deflection, $\delta_a$ is aileron deflection, and $\delta_r$ is rudder deflection. In the transition state, when the propulsion system for hover state is also used, the control input vector becomes as shown in equation (4.82).
 
-$$g\left( \dot{\mathbf{x}},\mathbf{x},\mathbf{u} \right) = 0$$
+$$
+\mathbf{u_t} = \left( \delta_T, \delta_e, \delta_a, \delta_r, u_1, u_2, u_3, u_4 \right)^T
+$$
 
-Before establishing, the cost function for the optimization problem,
-necessary parameters should be constructed. Translational dynamic,
-rotational dynamic, translational kinematic, and rotational kinematic
-cost function parameters are given in equations (4.84), (4.85), (4.86),
-and (4.87), respectively.
+where $u_1, u_2, u_3,$ and $u_4$ represent the force in the x-axis, the force that creates the pitching moment, the force that creates the rolling moment, and the force that creates the yawing moment, respectively. Additionally, the implicit form of the non-linear aircraft state equation for the trim state is given in equation (4.83).
+
+$$
+g(\dot{\mathbf{x}}, \mathbf{x}, \mathbf{u}) = 0
+$$
+
+Before establishing the cost function for the optimization problem, necessary parameters should be constructed. Translational dynamic, rotational dynamic, translational kinematic, and rotational kinematic cost function parameters are given in equations (4.84), (4.85), (4.86), and (4.87), respectively.
 
 $$f_{TD1} = \dot{u},\ \ f_{TD2} = \dot{v},\ \ f_{TD3} = \dot{w}$$
 
@@ -70,67 +52,52 @@ $$f_{TK1} = \dot{x},\ \ f_{TK2} = \dot{y},\ \ f_{TK3} = \dot{z}$$
 
 $$f_{RK1} = \dot{\phi},\ \ f_{RK2} = \dot{\theta},\ \ f_{RK3} = \dot{\psi}$$
 
-However, considering the construction of the trim problem in order to
-add flight path angle constraint to the cost function, $f_{TK3}$ can be
-written as
+However, considering the construction of the trim problem in order to add flight path angle constraint to the cost function, $f_{TK3}$ can be written as:
 
-$$f_{TK3} = sin\gamma - \lbrack(cos\alpha\ cos\beta\ sin\theta) - (sin\beta\ cos\theta\ sin\phi) - (sin\alpha\ cos\beta\ cos\theta\ cos\phi)\rbrack$$
+$$f_{TK3} = \sin\gamma - \left[\cos\alpha\cos\beta\sin\theta - \sin\beta\cos\theta\sin\phi - \sin\alpha\cos\beta\cos\theta\cos\phi\right]$$
 
-These cost function parameters are obtained by using the equation of
-motion of the hybrid VTOL aircraft as it was discussed in section 4.2.1.
-For general straight flight trim analysis, the trim states are chosen as
-shown in equation (4.89).
+These cost function parameters are obtained by using the equation of motion of the hybrid VTOL aircraft as discussed in section 4.2.1. For general straight flight trim analysis, the trim states are chosen as shown in equation (4.89):
 
-$$\mathbf{\zeta} = {(V_{T},\ \beta,\ \alpha,\ (u,\ v,\ w),\ p,\ q,\ r,\ \phi,\ \theta,\ \psi,\ h,\gamma,\ \delta_{T},\ \text{δe},\ \text{δa},\ \text{δr})}^{T}$$
+$$\mathbf{\zeta} = \left(V_{T},\ \beta,\ \alpha,\ (u,\ v,\ w),\ p,\ q,\ r,\ \phi,\ \theta,\ \psi,\ h,\gamma,\ \delta_{T},\ \delta_e,\ \delta_a,\ \delta_r\right)^T$$
 
-Where specified and unknown trim state vectors are given in equations
-(4.90) and (4.91),
+Where specified and unknown trim state vectors are given in equations (4.90) and (4.91):
 
-$$\mathbf{\zeta}_{\text{specified}} = {(V_{T},\ h,\gamma,\ \phi)}^{T}$$
+$$
+\mathbf{\zeta}_{\text{specified}} = \begin{pmatrix} V_T \\ h \\ \gamma \\ \phi \end{pmatrix}^T
+$$
 
-$$\mathbf{\zeta}_{\text{unknown}} = {(\ \beta,\ \alpha,\ p,\ q,\ r,\ \theta,\ \psi,\delta e,\ \text{δa},\ \delta r,\delta_{T})}^{T}$$
+$$\mathbf{\zeta}_{\text{unknown}} = \left(\beta,\ \alpha,\ p,\ q,\ r,\ \theta,\ \psi,\delta_e,\ \delta_a,\ \delta_r,\delta_T\right)^T$$
 
-$\zeta_{\text{specified}}$ is actually defined as the trim condition of
-the aircraft. $h$ determines the atmospheric conditions, $\gamma$
-determines whether the aircraft descending or ascending. If a turn state
-is analyzed, $\phi$ term can be given as input other than zero. The
-generalized trim cost function is defined in equation (4.92).
+Here, $\zeta_{\text{specified}}$ is defined as the trim condition of the aircraft. $h$ determines the atmospheric conditions, $\gamma$ determines whether the aircraft is descending or ascending. If a turn state is analyzed, the $\phi$ term can be given as an input other than zero. The generalized trim cost function is defined in equation (4.92):
 
-$$J = f_{TD1}^{2} + f_{TD2}^{2} + f_{TD3}^{2} + f_{RD1}^{2} + f_{RD2}^{2} + f_{RD3}^{2} + f_{RK1}^{2} + f_{RK2}^{2} + f_{RK3}^{2} + f_{TK2}^{2} + f_{TK3}^{2}$$
+$$J = f_{TD1}^2 + f_{TD2}^2 + f_{TD3}^2 + f_{RD1}^2 + f_{RD2}^2 + f_{RD3}^2 + f_{RK1}^2 + f_{RK2}^2 + f_{RK3}^2 + f_{TK2}^2 + f_{TK3}^2$$
 
-Then, the optimization problem can be solved with 11 unknown and 11
-known variables. The trim analysis is also run for transition dynamics
-for the aircraft. Additional variables are the propulsion system for the
-hover state of the aircraft. However, in order to make a number of
-unknown and known equal some changes should be done. Thus, the
-deflection of control surfaces is specified as 0 deflections. Also, one
-additional parameter which is $\theta$, is set to zero. Additionally,
-moment and forces are considered to be compensated by the hover
-propulsion system.
+Then, the optimization problem can be solved with 11 unknown and 11 known variables. The trim analysis is also run for transition dynamics of the aircraft. Additional variables are the propulsion system for the hover state of the aircraft. However, in order to make the number of unknown and known variables equal, some changes should be made. Thus, the deflection of control surfaces is specified as 0 deflections. Also, one additional parameter, $\theta$, is set to zero. Additionally, moments and forces are considered to be compensated by the hover propulsion system.
 
-$$\mathbf{\zeta} = {(V_{T},\ \beta,\ \alpha,\ (u,\ v,\ w),\ p,\ q,\ r,\ \phi,\ \theta,\ \psi,\ h,\gamma,\ \delta_{T},u1,u2,u3,u4)}^{T}$$
+$$\mathbf{\zeta} = \left(V_{T},\ \beta,\ \alpha,\ (u,\ v,\ w),\ p,\ q,\ r,\ \phi,\ \theta,\ \psi,\ h,\gamma,\ \delta_{T},u1,u2,u3,u4\right)^T$$
 
-Where specified and unknown trim state vectors are given in equations
-(4.94) and (4.95).
+Where specified and unknown trim state vectors are given in equations (4.94) and (4.95):
 
-$$\mathbf{\zeta}_{\text{specified}} = {(V_{T},\ h,\gamma,\ \phi,\ \theta = 0,\ \delta e = 0,\ \delta a = 0,\ \delta r = 0)}^{T}$$
+$$
+\mathbf{\zeta}_{\text{specified}} = \begin{pmatrix} V_T \\ h \\ \gamma \\ \phi \\ \theta = 0 \\ \delta e = 0 \\ \delta a = 0 \\ \delta r = 0 \end{pmatrix}^T
+$$
 
-$$\mathbf{\zeta}_{\text{unknown}} = \left( \beta,\alpha,p,q,r,\theta,\psi,\delta e,\text{δa},\delta r,\delta_{T},u1,u2,u3,u4 \right)^{T}$$
+$$
+\mathbf{\zeta}_{\text{unknown}} = \begin{pmatrix} \beta \\ \alpha \\ p \\ q \\ r \\ \theta \\ \psi \\ \delta e \\ \delta a \\ \delta r \\ \delta_T \\ u_1 \\ u_2 \\ u_3 \\ u_4 \end{pmatrix}^T
+$$
 
-The cost function for transition trim analysis is defined the same as
-the general straight flight trim analysis which is established in
-equation (4.92).
+The cost function for transition trim analysis is defined the same as the general straight flight trim analysis, as established in equation (4.92).
 
-On the other hand, another trim analysis type which is steady-state turn
-flight is performed in this thesis. Additional to the general straight
-flight trim problem, the side-slip angle, $\beta$, is specified, body
-rates are removed, and yaw rate is left optional to user definition,
-regarding the trim state vector as it is seen in equation (4.96) and
-(4.97).
+On the other hand, another trim analysis type, which is steady-state turn flight, is performed in this thesis. In addition to the general straight flight trim problem, the side-slip angle, $\beta$, is specified, body rates are removed, and yaw rate is left optional to user definition, regarding the trim state vector as seen in equations (4.96) and (4.97)
 
-$$\mathbf{\zeta}_{\text{specified}} = {(V_{T},\ h,\gamma,\beta,\ \phi\ (or\ \ \dot{\psi}))}^{T}$$
+$$
+\mathbf{\zeta}_{\text{specified}} = \begin{pmatrix} V_T \\ h \\ \gamma \\ \beta \\ \phi \ \text{(or} \ \dot{\psi}) \end{pmatrix}^T
+$$
 
-$$\mathbf{\zeta}_{\text{unknown}} = {(\alpha,\ \theta,\ \dot{\psi}\ (or\ \phi)\ ,\delta e,\ \text{δa},\ \delta r,\delta_{T})}^{T}$$
+
+$$
+\mathbf{\zeta}_{\text{unknown}} = \begin{pmatrix} \alpha \\ \theta \\ \dot{\psi} \ \text{(or} \ \phi) \\ \delta e \\ \delta a \\ \delta r \\ \delta_T \end{pmatrix}^T
+$$
 
 Therefore, in the trim state vector, there are seven unknown variables.
 Because turning concerns the variables in the planar position, related
@@ -236,12 +203,15 @@ where $\overline{\eta}\epsilon\ \mathbb{R}^{2n + m + k}$. If the Taylor
 series expansion is written for $F(\overline{\eta})$, we can obtain
 equation (4.124).
 
-$$F(\overline{\eta}) = F({\overline{\eta}}_{1}) + \left. \ \frac{\partial F(\overline{\eta})}{\partial\overline{\eta}} \right|_{{\overline{\eta}}_{1}}\left( \overline{\eta} - {\overline{\eta}}_{1} \right) + \left. \ \frac{\partial^{2}F(\overline{\eta})}{\partial{\overline{\eta}}^{2}} \right|_{{\overline{\eta}}_{1}}\left( \overline{\eta} - {\overline{\eta}}_{1} \right)^{2} + \cdots$$
+$$
+F(\bar{\eta}) = F({\bar{\eta}}_1) + \left. \frac{\partial F(\bar{\eta})}{\partial\bar{\eta}} \right|_{{\bar{\eta}}_1} (\bar{\eta}-{\bar{\eta}}_1) + \left. \frac{\partial^2F(\bar{\eta})}{\partial{\bar{\eta}}^2} \right|_{{\bar{\eta}}_1} (\bar{\eta}-{\bar{\eta}}_1)^2 + \cdots
+$$
 
-And if the $\overline{\eta}$ the term is expanded, the equation (4.125)
-can be written for the first gradient.
+And if the $\overline{\eta}$ term is expanded, the equation (4.125) can be written for the first gradient.
 
-$$F(\dot{\overline{x}},\ \overline{x},\overline{u},\overline{d}) = F({\dot{\overline{x}}}_{1},{\overline{x}}_{1},{\overline{u}}_{1},{\overline{d}}_{1}) + \frac{\partial F(\dot{\overline{x}},\ \overline{x},\overline{u},\overline{d})}{\partial\dot{\overline{x}}}\left( \dot{\overline{x}} - {\dot{\overline{x}}}_{1} \right) + \frac{\partial F(\dot{\overline{x}},\ \overline{x},\overline{u},\overline{d})}{\partial\ \overline{x}}\left( \ \overline{x} - {\overline{x}}_{1} \right) + \frac{\partial F(\dot{\overline{x}},\ \overline{x},\overline{u},\overline{d})}{\partial\ \overline{u}}\left( \ \overline{u} - {\overline{u}}_{1} \right) + \frac{\partial F(\dot{\overline{x}},\ \overline{x},\overline{u},\overline{d})}{\partial\ \overline{d}}\left( \ \overline{d} - {\overline{d}}_{1} \right) + \cdots$$
+$$
+F(\dot{\overline{x}}, \bar{x}, \bar{u}, \bar{d}) = F(\dot{\overline{x}}_1, \bar{x}_1, \bar{u}_1, \bar{d}_1) + \frac{\partial F(\dot{\overline{x}}, \bar{x}, \bar{u}, \bar{d})}{\partial \dot{\overline{x}}} (\dot{\overline{x}} - \dot{\overline{x}}_1) + \frac{\partial F(\dot{\overline{x}}, \bar{x}, \bar{u}, \bar{d})}{\partial \bar{x}} (\bar{x} - \bar{x}_1) + \frac{\partial F(\dot{\overline{x}}, \bar{x}, \bar{u}, \bar{d})}{\partial \bar{u}} (\bar{u} - \bar{u}_1) + \frac{\partial F(\dot{\overline{x}}, \bar{x}, \bar{u}, \bar{d})}{\partial \bar{d}} (\bar{d} - \bar{d}_1) + \cdots
+$$
 
 In equation (4.125), the subscript “1” refers to the trim state, related
 to the steady-state flight. For the sake of simplicity, the difference
@@ -257,42 +227,52 @@ $$\mathrm{\Delta}\overline{d} = \left( \ \overline{d} - {\overline{d}}_{1} \righ
 
 Then each Jacobian matrix can be written as follow,
 
-$$\frac{\partial F({\overline{\eta}}_{1})}{\partial\dot{\overline{x}}} = \begin{pmatrix}
-\frac{\partial F_{1}}{\partial\ {\dot{\overline{x}}}_{1}} & \ldots & \frac{\partial F_{1}}{\partial\ {\dot{\overline{x}}}_{n}} \\
- \vdots & \ddots & \vdots \\
-\frac{\partial F_{n}}{\partial\ {\dot{\overline{x}}}_{1}} & \ldots & \frac{\partial F_{n}}{\partial\ {\dot{\overline{x}}}_{n}} \\
-\end{pmatrix} = \ E$$
+$$
+\frac{\partial F(\bar{\eta}_1)}{\partial \dot{\overline{x}}} = \begin{pmatrix}
+\frac{\partial F_1}{\partial \dot{\overline{x}}_1} & \ldots & \frac{\partial F_1}{\partial \dot{\overline{x}}_n} \\
+\vdots & \ddots & \vdots \\
+\frac{\partial F_n}{\partial \dot{\overline{x}}_1} & \ldots & \frac{\partial F_n}{\partial \dot{\overline{x}}_n} \\
+\end{pmatrix} = E
+$$
 
-$$\frac{\partial F({\overline{\eta}}_{1})}{\partial\overline{x}} = \begin{pmatrix}
-\frac{\partial F_{1}}{\partial\ {\overline{x}}_{1}} & \ldots & \frac{\partial F_{1}}{\partial\ {\overline{x}}_{n}} \\
- \vdots & \ddots & \vdots \\
-\frac{\partial F_{n}}{\partial\ {\overline{x}}_{1}} & \ldots & \frac{\partial F_{n}}{\partial\ {\overline{x}}_{n}} \\
-\end{pmatrix} = \ A'$$
+$$
+\frac{\partial F(\bar{\eta}_1)}{\partial \bar{x}} = \begin{pmatrix}
+\frac{\partial F_1}{\partial \bar{x}_1} & \ldots & \frac{\partial F_1}{\partial \bar{x}_n} \\
+\vdots & \ddots & \vdots \\
+\frac{\partial F_n}{\partial \bar{x}_1} & \ldots & \frac{\partial F_n}{\partial \bar{x}_n} \\
+\end{pmatrix} = A'
+$$
 
-$$\frac{\partial F({\overline{\eta}}_{1})}{\partial\overline{u}} = \begin{pmatrix}
-\frac{\partial F_{1}}{\partial\ {\overline{u}}_{1}} & \ldots & \frac{\partial F_{1}}{\partial\ {\overline{u}}_{n}} \\
- \vdots & \ddots & \vdots \\
-\frac{\partial F_{n}}{\partial\ {\overline{u}}_{1}} & \ldots & \frac{\partial F_{n}}{\partial\ {\overline{u}}_{n}} \\
-\end{pmatrix} = \ B'$$
+$$
+\frac{\partial F(\bar{\eta}_1)}{\partial \bar{u}} = \begin{pmatrix}
+\frac{\partial F_1}{\partial \bar{u}_1} & \ldots & \frac{\partial F_1}{\partial \bar{u}_n} \\
+\vdots & \ddots & \vdots \\
+\frac{\partial F_n}{\partial \bar{u}_1} & \ldots & \frac{\partial F_n}{\partial \bar{u}_n} \\
+\end{pmatrix} = B'
+$$
 
-$$\frac{\partial F({\overline{\eta}}_{1})}{\partial\overline{d}} = \begin{pmatrix}
-\frac{\partial F_{1}}{\partial\ {\overline{d}}_{1}} & \ldots & \frac{\partial F_{1}}{\partial\ {\overline{d}}_{n}} \\
- \vdots & \ddots & \vdots \\
-\frac{\partial F_{n}}{\partial\ {\overline{d}}_{1}} & \ldots & \frac{\partial F_{n}}{\partial\ {\overline{d}}_{n}} \\
-\end{pmatrix} = \ D'$$
+$$
+\frac{\partial F(\bar{\eta}_1)}{\partial \bar{d}} = \begin{pmatrix}
+\frac{\partial F_1}{\partial \bar{d}_1} & \ldots & \frac{\partial F_1}{\partial \bar{d}_n} \\
+\vdots & \ddots & \vdots \\
+\frac{\partial F_n}{\partial \bar{d}_1} & \ldots & \frac{\partial F_n}{\partial \bar{d}_n} \\
+\end{pmatrix} = D'
+$$
 
 Jacobians are given in equations (4.130), (4.131), (4.132), and (4.133).
 Regarding the equation (4.125), the terms
 $F(\dot{\overline{x}},\ \overline{x},\overline{u},\overline{d})$ and
-$F({\dot{\overline{x}}}_{1},{\overline{x}}_{1},{\overline{u}}_{1},{\overline{d}}_{1})$
+$F(\dot{\overline{x}}_1,\bar{x}_1,\bar{u}_1,\bar{d}_1)$
 are expected to be zero because the flight conditions are steady-state
 flight conditions. Therefore, the equation can be established.
 
-$$0 = E\mathrm{\Delta}\dot{\overline{x}} + A'\mathrm{\Delta}\overline{x} + B'\mathrm{\Delta}\overline{u} + D'\mathrm{\Delta}\overline{d}$$
+$$
+0 = E\Delta x + A'\Delta x + B'\Delta u + D'\Delta d
+$$
 
 Using the equation (4.134), we can obtain state states form,
 
-$$\mathrm{\Delta}\dot{\overline{x}} = - E^{- 1}A'\mathrm{\Delta}\overline{x} - E^{- 1}B'\mathrm{\Delta}\overline{u} - E^{- 1}D'\mathrm{\Delta}\overline{d}$$
+$$\mathrm{\Delta}\dot{\overline{x}} =-E^{-1}A'\mathrm{\Delta}\overline{x}-E^{-1}B'\mathrm{\Delta}\overline{u} -E^{-1}D'\mathrm{\Delta}\overline{d}$$
 
 Consequently, the state matrix, $A$, input matrix, $B$, and the
 disturbance matrix, $D$, can be obtained using equations (4.136),
@@ -415,17 +395,17 @@ linearization techniques. The state matrix results for longitudinal and
 lateral dynamics are given in equations (4.146) and (4.147).
 
 $$A_{\text{lon}} = \begin{pmatrix}
- - 0.134 & 0.517 & - 2.030 & - 9.751 & 0 \\
- - 0.677 & - 2.623 & 19.027 & - 1.044 & 0 \\
-0.263 & - 2.473 & - 5.197 & 0 & 0 \\
+ -0.134 & 0.517 & -2.030 & -9.751 & 0 \\
+ -0.677 & -2.623 & 19.027 & -1.044 & 0 \\
+0.263 & -2.473 & -5.197 & 0 & 0 \\
 0 & 0 & 1 & 0 & 0 \\
-0 & - 0.994 & 0 & 20.5 & 0 \\
+0 & -0.994 & 0 & 20.5 & 0 \\
 \end{pmatrix}$$
 
 $$A_{\text{lat}} = \begin{pmatrix}
- - 0.298 & 2.207 & - 19.992 & 9.751 & 0 \\
-0.624 & - 6.848 & 2.547 & 0 & 0 \\
-0.997 & - 1.375 & - 0.859 & 0 & 0 \\
+ -0.298 & 2.207 & -19.992 & 9.751 & 0 \\
+0.624 & -6.848 & 2.547 & 0 & 0 \\
+0.997 & -1.375 & -0.859 & 0 & 0 \\
 0 & 1 & 0.107 & 0 & 0 \\
 0 & 0 & 1.006 & 0 & 0 \\
 \end{pmatrix}$$
@@ -434,16 +414,16 @@ Also, the longitudinal and lateral input matrices are given below,
 
 $$B_{lon,ff} = \begin{pmatrix}
 0 & 5.233 \\
- - 6.996 & 0 \\
- - 13.952 & 0 \\
+ -6.996 & 0 \\
+ -13.952 & 0 \\
 0 & 0 \\
 0 & 0 \\
 \end{pmatrix}$$
 
 $$B_{lat,ff} = \begin{pmatrix}
 0 & 3.079 \\
-27.887 & - 0.420 \\
-2.657 & - 8.965 \\
+27.887 & -0.420 \\
+2.657 & -8.965 \\
 0 & 0 \\
 0 & 0 \\
 \end{pmatrix}$$
@@ -451,5 +431,4 @@ $$B_{lat,ff} = \begin{pmatrix}
 
 
 ## References
-
 
